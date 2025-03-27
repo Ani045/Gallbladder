@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hernia Information</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #e1f0f7;
+            --primary-text: #072A3A;
+            --accent-light: #b8e0f2;
+            --accent-dark: #0a4d68;
+            --highlight: #a3d9ff;
+            --header-bg: #0a4d68;
+            --header-text: #e1f0f7;
+        }
+        
+        body {
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-bottom: 2rem;
+        }
+        
+        .header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 50%);
+            opacity: 0.4;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        .card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+        
+        .card:nth-child(5) {
+            animation-delay: 1s;
+        }
+        
+        .card-header {
+            font-weight: 600;
+            font-size: 1.25rem;
+            padding: 1rem;
+            border-bottom: none;
+        }
+        
+        .causes-header {
+            background-color: var(--accent-dark);
+            color: var(--header-text);
+        }
+        
+        .symptoms-header {
+            background-color: var(--highlight);
+            color: var(--primary-text);
+        }
+        
+        .types-header {
+            background: linear-gradient(135deg, var(--accent-dark), var(--highlight));
+            color: var(--header-text);
+        }
+        
+        .advantages-header {
+            background: linear-gradient(135deg, var(--highlight), var(--accent-light));
+            color: var(--primary-text);
+        }
+        
+        .delay-header {
+            background: linear-gradient(135deg, var(--accent-dark), #072A3A);
+            color: var(--header-text);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body ul {
+            padding-left: 1.25rem;
+            margin-bottom: 0;
+        }
+        
+        .card-body li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+        
+        .card-body li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .icon-container {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .card-row {
+            margin-bottom: 2rem;
+        }
+        
+        .header-description {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--header-text);
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .card-row {
+                margin-bottom: 0;
+            }
+            
+            .header-description {
+                padding: 0 15px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="intro-section">
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Understanding Hernias</h1>
+            <p class="lead">Educational information about causes, symptoms, and treatment options</p>
+            <div class="mt-4">
+                <p class="header-description">Hernias are common medical conditions that occur when an organ pushes through an opening in the muscle or tissue that holds it in place. Understanding the causes, symptoms, and treatment options can help you make informed decisions about your health care and potentially prevent complications.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="container">
+        <div class="row card-row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-header causes-header">
+                        <div class="icon-container">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h2 class="text-center">What Causes Hernia?</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Several factors can contribute to the development of a hernia:</p>
+                        <ul>
+                            <li>Strenuous physical activity</li>
+                            <li>Straining during bowel movements or urination</li>
+                            <li>Lifting heavy objects</li>
+                            <li>Chronic constipation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-header symptoms-header">
+                        <div class="icon-container">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h2 class="text-center">Symptoms of Hernia</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Be aware of these potential signs:</p>
+                        <ul>
+                            <li>A noticeable bulge or swelling, often in the abdomen or groin area</li>
+                            <li>Pain or discomfort, particularly when bending over or lifting</li>
+                            <li>A feeling of pressure at the site of the hernia</li>
+                            <li>Nausea or vomiting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-header types-header">
+                        <div class="icon-container">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <h2 class="text-center">Types of Hernia Surgery</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>There are two main surgical approaches to hernia repair:</p>
+                        <ul>
+                            <li><strong>Open Surgery:</strong> The hernia is repaired through an incision, using sutures, mesh reinforcement, or a combination of both.</li>
+                            <li><strong>Laparoscopic Surgery:</strong> This minimally invasive technique involves repairing the hernia with specialized instruments guided by a laparoscope.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header advantages-header">
+                        <div class="icon-container">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2 class="text-center">Why Laparoscopic Hernia Surgery?</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Laparoscopic surgery offers several advantages, including:</p>
+                        <ul>
+                            <li>Smaller incisions and minimal scarring</li>
+                            <li>Shorter hospital stays</li>
+                            <li>Reduced post-operative pain</li>
+                            <li>Greater surgical precision and safety</li>
+                            <li>Lower risk of infection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header delay-header">
+                        <div class="icon-container">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h2 class="text-center">Why This Procedure Should Not Be Delayed?</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Delaying hernia treatment can lead to:</p>
+                        <ul>
+                            <li>Progressive enlargement of the hernia</li>
+                            <li>Increasing pain and discomfort</li>
+                            <li>The risk of hernia strangulation (a serious complication)</li>
+                            <li>The need for more extensive surgery in the future</li>
+                            <li>Potential for tumor development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <p class="text-muted"><small>This information is provided for educational purposes only and is not a substitute for professional medical advice.</small></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

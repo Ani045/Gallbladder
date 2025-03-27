@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hernia Information - 3 Column Layout</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #e1f0f7;
+            color: #072A3A;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(7, 42, 58, 0.08);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(7, 42, 58, 0.1) !important;
+        }
+        
+        .card-title {
+            color: #072A3A;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(7, 42, 58, 0.1);
+            padding-bottom: 12px;
+        }
+        
+        .icon-circle {
+            background-color: rgba(7, 42, 58, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 5px;
+        }
+        
+        @media (max-width: 992px) {
+            .card {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Understanding Hernia: Causes, Symptoms & Treatment</h2>
+        
+        <!-- First Row - 3 columns -->
+        <div class="row g-4 mb-4">
+            <!-- What is Hernia -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3 d-flex align-items-center">
+                            <div class="icon-circle">
+                                <i class="fas fa-question-circle pulse-icon" style="color: #072A3A;"></i>
+                            </div>
+                            What is Hernia?
+                        </h3>
+                        <p class="card-text">A hernia occurs when an internal organ or tissue protrudes through a weak point in the surrounding muscle or connective tissue. Common locations for hernias include the groin and upper abdomen.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- What causes Hernia -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3 d-flex align-items-center">
+                            <div class="icon-circle">
+                                <i class="fas fa-exclamation-circle pulse-icon" style="color: #072A3A;"></i>
+                            </div>
+                            What causes Hernia?
+                        </h3>
+                        <p class="card-text">Several factors can contribute to the development of a hernia:</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-circle me-2" style="color: #072A3A;"></i>Strenuous physical activity</li>
+                            <li><i class="fas fa-circle me-2" style="color: #072A3A;"></i>Straining during bowel movements</li>
+                            <li><i class="fas fa-circle me-2" style="color: #072A3A;"></i>Lifting heavy objects</li>
+                            <li><i class="fas fa-circle me-2" style="color: #072A3A;"></i>Chronic constipation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Symptoms of Hernia -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3 d-flex align-items-center">
+                            <div class="icon-circle">
+                                <i class="fas fa-clipboard-list pulse-icon" style="color: #072A3A;"></i>
+                            </div>
+                            Symptoms of Hernia
+                        </h3>
+                        <p class="card-text">Be aware of these potential signs:</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-chevron-right me-2" style="color: #072A3A;"></i>A noticeable bulge or swelling</li>
+                            <li><i class="fas fa-chevron-right me-2" style="color: #072A3A;"></i>Pain or discomfort when lifting</li>
+                            <li><i class="fas fa-chevron-right me-2" style="color: #072A3A;"></i>A feeling of pressure at the site</li>
+                            <li><i class="fas fa-chevron-right me-2" style="color: #072A3A;"></i>Nausea or vomiting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Second Row - 3 columns -->
+        <div class="row g-4">
+            <!-- Types of Hernia Surgery -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3 d-flex align-items-center">
+                            <div class="icon-circle">
+                                <i class="fas fa-hospital pulse-icon" style="color: #072A3A;"></i>
+                            </div>
+                            Types of Hernia Surgery
+                        </h3>
+                        <p class="card-text">There are two main surgical approaches to hernia repair:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <div class="d-flex">
+                                    <div class="me-2"><i class="fas fa-procedures" style="color: #072A3A;"></i></div>
+                                    <div>
+                                        <strong>Open Surgery:</strong> The hernia is repaired through an incision, using sutures or mesh.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex">
+                                    <div class="me-2"><i class="fas fa-microscope" style="color: #072A3A;"></i></div>
+                                    <div>
+                                        <strong>Laparoscopic Surgery:</strong> Minimally invasive technique using specialized instruments.
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why Laparoscopic Hernia Surgery -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3 d-flex align-items-center">
+                            <div class="icon-circle">
+                                <i class="fas fa-check-circle pulse-icon" style="color: #072A3A;"></i>
+                            </div>
+                            Why Laparoscopic Surgery?
+                        </h3>
+                        <p class="card-text">Laparoscopic surgery offers several advantages:</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-plus-circle me-2" style="color: #072A3A;"></i>Smaller incisions & minimal scarring</li>
+                            <li><i class="fas fa-plus-circle me-2" style="color: #072A3A;"></i>Shorter hospital stays</li>
+                            <li><i class="fas fa-plus-circle me-2" style="color: #072A3A;"></i>Reduced post-operative pain</li>
+                            <li><i class="fas fa-plus-circle me-2" style="color: #072A3A;"></i>Greater surgical precision</li>
+                            <li><i class="fas fa-plus-circle me-2" style="color: #072A3A;"></i>Lower risk of infection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why This Procedure Should Not Be Delayed -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3 d-flex align-items-center">
+                            <div class="icon-circle">
+                                <i class="fas fa-clock pulse-icon" style="color: #072A3A;"></i>
+                            </div>
+                            Why Not Delay Treatment?
+                        </h3>
+                        <p class="card-text">Delaying hernia treatment can lead to:</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-exclamation-triangle me-2" style="color: #072A3A;"></i>Progressive enlargement</li>
+                            <li><i class="fas fa-exclamation-triangle me-2" style="color: #072A3A;"></i>Increasing pain and discomfort</li>
+                            <li><i class="fas fa-exclamation-triangle me-2" style="color: #072A3A;"></i>Risk of hernia strangulation</li>
+                            <li><i class="fas fa-exclamation-triangle me-2" style="color: #072A3A;"></i>Need for more extensive surgery</li>
+                            <li><i class="fas fa-exclamation-triangle me-2" style="color: #072A3A;"></i>Potential tumor development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
