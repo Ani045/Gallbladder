@@ -3,338 +3,543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hernia Information</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Patient Video Testimonials</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-bg: #e1f0f7;
-            --primary-text: #072A3A;
-            --accent-light: #b8e0f2;
-            --accent-dark: #0a4d68;
-            --highlight: #a3d9ff;
-            --header-bg: #0a4d68;
-            --header-text: #e1f0f7;
+            --primary-color: #1e90ff;   /* DodgerBlue */
+            --primary-light: #71c1ff;   /* Lighter shade for hover */
+            --secondary-color: #2ecc71; /* Emerald */
+            --background-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-color: #34495e;
+            --text-light: #6c7a89;
+            --header-bg: #2c3e50;
+            --header-text: #ecf0f1;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.12);
+            --transition-normal: all 0.3s ease;
         }
         
         body {
-            background-color: var(--primary-bg);
-            color: var(--primary-text);
+            background-color: var(--background-color);
+            color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-bottom: 2rem;
         }
         
-        .header {
-            background-color: var(--header-bg);
-            color: var(--header-text);
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Video grid styles */
+        .ivy-video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns for large devices */
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .ivy-video-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            background-color: var(--card-bg);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .ivy-video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .ivy-video-preview {
             position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background-color: #000;
+        }
+        
+        .ivy-video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
             overflow: hidden;
         }
         
-        .header::before {
-            content: '';
+        .ivy-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .ivy-video-placeholder:hover .ivy-thumbnail {
+            transform: scale(1.05);
+        }
+        
+        .ivy-custom-play-btn {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--accent-light) 0%, transparent 50%);
-            opacity: 0.4;
-            animation: rotate 20s linear infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            transition: var(--transition-normal);
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
         }
         
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        .ivy-video-placeholder:hover .ivy-custom-play-btn {
+            transform: translate(-50%, -50%) scale(1.15);
         }
         
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .ivy-play-circle {
+            fill: rgba(254, 251, 217, 0.9);
+            stroke: var(--primary-color);
+            transition: var(--transition-normal);
+        }
+        
+        .ivy-play-icon {
+            fill: var(--primary-color);
+            transition: var(--transition-normal);
+        }
+        
+        .ivy-video-placeholder:hover .ivy-play-circle {
+            fill: rgba(254, 251, 217, 1);
+            stroke: var(--primary-light);
+        }
+        
+        .ivy-video-placeholder:hover .ivy-play-icon {
+            fill: var(--primary-light);
+        }
+        
+        .ivy-video-info {
+            padding: 20px;
+            background-color: var(--card-bg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .ivy-video-info h4 {
+            margin: 0 0 8px;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--header-bg);
+            line-height: 1.3;
+        }
+        
+        .ivy-video-info p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .ivy-video-badge {
+            display: inline-block;
+            background-color: rgba(30, 144, 255, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 12px;
+            transition: var(--transition-normal);
+        }
+        
+        .ivy-video-card:hover .ivy-video-badge {
+            background-color: rgba(30, 144, 255, 0.2);
+        }
+        
+        /* Section styles */
+        .ivy-section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+        
+        .ivy-section-tagline {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .ivy-section-heading {
+            color: var(--header-bg);
+            font-size: 36px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .ivy-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .ivy-divider:before,
+        .ivy-divider:after {
+            content: "";
+            height: 1px;
+            background-color: rgba(46, 204, 113, 0.2);
+            flex: 1;
+            max-width: 100px;
+        }
+        
+        .ivy-divider-icon {
+            margin: 0 15px;
+            color: var(--primary-color);
+            font-size: 22px;
+        }
+        
+        .ivy-section-intro {
+            color: var(--text-light);
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Modal styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
             height: 100%;
             overflow: hidden;
-            animation: fadeIn 0.8s ease-in-out;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
         }
         
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-        
-        .card:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-        
-        .card:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-        
-        .card:nth-child(4) {
-            animation-delay: 0.8s;
-        }
-        
-        .card:nth-child(5) {
-            animation-delay: 1s;
-        }
-        
-        .card-header {
-            font-weight: 600;
-            font-size: 1.25rem;
-            padding: 1rem;
-            border-bottom: none;
-        }
-        
-        .causes-header {
-            background-color: var(--accent-dark);
-            color: var(--header-text);
-        }
-        
-        .symptoms-header {
-            background-color: var(--highlight);
-            color: var(--primary-text);
-        }
-        
-        .types-header {
-            background: linear-gradient(135deg, var(--accent-dark), var(--highlight));
-            color: var(--header-text);
-        }
-        
-        .advantages-header {
-            background: linear-gradient(135deg, var(--highlight), var(--accent-light));
-            color: var(--primary-text);
-        }
-        
-        .delay-header {
-            background: linear-gradient(135deg, var(--accent-dark), #072A3A);
-            color: var(--header-text);
-        }
-        
-        .card-body {
-            padding: 1.5rem;
-        }
-        
-        .card-body ul {
-            padding-left: 1.25rem;
-            margin-bottom: 0;
-        }
-        
-        .card-body li {
-            margin-bottom: 0.75rem;
+        .video-modal-content {
             position: relative;
+            margin: auto;
+            width: 90%;
+            max-width: 900px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
         }
         
-        .card-body li:last-child {
-            margin-bottom: 0;
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
         }
         
-        .icon-container {
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            animation: pulse 2s infinite;
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
+        .close-modal {
+            position: absolute;
+            right: -50px;
+            top: 0;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1060;
+            transition: var(--transition-normal);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
         }
         
-        .card-row {
-            margin-bottom: 2rem;
+        .close-modal:hover {
+            color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
         }
         
-        .header-description {
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--header-text);
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-            animation-delay: 0.5s;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .card {
-                margin-bottom: 1.5rem;
-            }
-            
-            .card-row {
-                margin-bottom: 0;
-            }
-            
-            .header-description {
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .ivy-video-grid {
+                grid-template-columns: repeat(4, 1fr); /* Still 4 columns */
+                gap: 20px;
                 padding: 0 15px;
-                font-size: 0.95rem;
+            }
+            
+            .ivy-section-heading {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .ivy-video-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ivy-video-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+                gap: 15px;
+            }
+            
+            .video-modal-content {
+                width: 95%;
+            }
+            
+            .close-modal {
+                right: 10px;
+                top: -50px;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            
+            .ivy-section-heading {
+                font-size: 28px;
+            }
+            
+            .ivy-section-intro {
+                font-size: 16px;
+            }
+            
+            .ivy-video-info {
+                padding: 15px;
+            }
+            
+            .ivy-video-info h4 {
+                font-size: 16px;
+            }
+            
+            .ivy-custom-play-btn svg {
+                width: 56px;
+                height: 56px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ivy-video-grid {
+                grid-template-columns: repeat(2, 1fr); /* Still 2 columns on mobile */
+                gap: 12px;
+            }
+            
+            .ivy-custom-play-btn svg {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .ivy-video-badge {
+                padding: 3px 8px;
+                font-size: 10px;
+            }
+            
+            .ivy-video-info p {
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
-    <section class="intro-section">
-    <div class="header text-center">
-        <div class="container">
-            <h1 class="display-4">Understanding Hernias</h1>
-            <p class="lead">Educational information about causes, symptoms, and treatment options</p>
-            <div class="mt-4">
-                <p class="header-description">Hernias are common medical conditions that occur when an organ pushes through an opening in the muscle or tissue that holds it in place. Understanding the causes, symptoms, and treatment options can help you make informed decisions about your health care and potentially prevent complications.</p>
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="ivy-section-header">
+                <span class="ivy-section-tagline">Patient Stories</span>
+                <h2 class="ivy-section-heading">Video Testimonials</h2>
+                <div class="ivy-divider">
+                    <span class="ivy-divider-icon"><i class="fas fa-play-circle"></i></span>
+                </div>
+                <p class="ivy-section-intro">Hear directly from our patients about their experiences and successful treatments at our Hospital. These stories reflect real journeys of healing and recovery.</p>
             </div>
-        </div>
-    </div>
-</section>
 
-    <div class="container">
-        <div class="row card-row">
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card">
-                    <div class="card-header causes-header">
-                        <div class="icon-container">
-                            <i class="fas fa-exclamation-triangle"></i>
+            <!-- Video Grid -->
+            <div class="ivy-video-grid">
+                <!-- Video Testimonial 1 -->
+                <div class="ivy-video-card">
+                    <div class="ivy-video-preview">
+                        <div class="ivy-video-placeholder" data-video-id="SrK4PMFpTQ0" data-patient-name="John Smith" data-condition="Heart Surgery">
+                            <img src="https://img.youtube.com/vi/SrK4PMFpTQ0/maxresdefault.jpg" alt="John Smith's Story" class="ivy-thumbnail">
+                            <div class="ivy-custom-play-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+                                    <circle cx="12" cy="12" r="11" class="ivy-play-circle" stroke-width="1.5" />
+                                    <path d="M16 12l-6 4V8l6 4z" class="ivy-play-icon" />
+                                </svg>
+                            </div>
                         </div>
-                        <h2 class="text-center">What Causes Hernia?</h2>
                     </div>
-                    <div class="card-body">
-                        <p>Several factors can contribute to the development of a hernia:</p>
-                        <ul>
-                            <li>Strenuous physical activity</li>
-                            <li>Straining during bowel movements or urination</li>
-                            <li>Lifting heavy objects</li>
-                            <li>Chronic constipation</li>
-                        </ul>
+                    <div class="ivy-video-info">
+                        <div>
+                            <h4>John Smith</h4>
+                            <p>Successful recovery after complex cardiac procedure</p>
+                            <span class="ivy-video-badge">Heart Surgery</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card">
-                    <div class="card-header symptoms-header">
-                        <div class="icon-container">
-                            <i class="fas fa-clipboard-list"></i>
+                
+                <!-- Video Testimonial 2 -->
+                <div class="ivy-video-card">
+                    <div class="ivy-video-preview">
+                        <div class="ivy-video-placeholder" data-video-id="JB0V3SUeUEc" data-patient-name="Emily Johnson" data-condition="Cancer Treatment">
+                            <img src="https://img.youtube.com/vi/JB0V3SUeUEc/maxresdefault.jpg" alt="Emily Johnson's Story" class="ivy-thumbnail">
+                            <div class="ivy-custom-play-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+                                    <circle cx="12" cy="12" r="11" class="ivy-play-circle" stroke-width="1.5" />
+                                    <path d="M16 12l-6 4V8l6 4z" class="ivy-play-icon" />
+                                </svg>
+                            </div>
                         </div>
-                        <h2 class="text-center">Symptoms of Hernia</h2>
                     </div>
-                    <div class="card-body">
-                        <p>Be aware of these potential signs:</p>
-                        <ul>
-                            <li>A noticeable bulge or swelling, often in the abdomen or groin area</li>
-                            <li>Pain or discomfort, particularly when bending over or lifting</li>
-                            <li>A feeling of pressure at the site of the hernia</li>
-                            <li>Nausea or vomiting</li>
-                        </ul>
+                    <div class="ivy-video-info">
+                        <div>
+                            <h4>Emily Johnson</h4>
+                            <p>Battling cancer with innovative treatment protocols</p>
+                            <span class="ivy-video-badge">Cancer Treatment</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card">
-                    <div class="card-header types-header">
-                        <div class="icon-container">
-                            <i class="fas fa-procedures"></i>
+                
+                <!-- Video Testimonial 3 -->
+                <div class="ivy-video-card">
+                    <div class="ivy-video-preview">
+                        <div class="ivy-video-placeholder" data-video-id="JHj657rbdLo" data-patient-name="Robert Williams" data-condition="Joint Replacement">
+                            <img src="https://img.youtube.com/vi/JHj657rbdLo/maxresdefault.jpg" alt="Robert Williams's Story" class="ivy-thumbnail">
+                            <div class="ivy-custom-play-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+                                    <circle cx="12" cy="12" r="11" class="ivy-play-circle" stroke-width="1.5" />
+                                    <path d="M16 12l-6 4V8l6 4z" class="ivy-play-icon" />
+                                </svg>
+                            </div>
                         </div>
-                        <h2 class="text-center">Types of Hernia Surgery</h2>
                     </div>
-                    <div class="card-body">
-                        <p>There are two main surgical approaches to hernia repair:</p>
-                        <ul>
-                            <li><strong>Open Surgery:</strong> The hernia is repaired through an incision, using sutures, mesh reinforcement, or a combination of both.</li>
-                            <li><strong>Laparoscopic Surgery:</strong> This minimally invasive technique involves repairing the hernia with specialized instruments guided by a laparoscope.</li>
-                        </ul>
+                    <div class="ivy-video-info">
+                        <div>
+                            <h4>Robert Williams</h4>
+                            <p>Regaining mobility and independence after surgery</p>
+                            <span class="ivy-video-badge">Joint Replacement</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Testimonial 4 -->
+                <div class="ivy-video-card">
+                    <div class="ivy-video-preview">
+                        <div class="ivy-video-placeholder" data-video-id="db9n22BEDdk" data-patient-name="Sarah Brown" data-condition="Spine Surgery">
+                            <img src="https://img.youtube.com/vi/db9n22BEDdk/maxresdefault.jpg" alt="Sarah Brown's Story" class="ivy-thumbnail">
+                            <div class="ivy-custom-play-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+                                    <circle cx="12" cy="12" r="11" class="ivy-play-circle" stroke-width="1.5" />
+                                    <path d="M16 12l-6 4V8l6 4z" class="ivy-play-icon" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ivy-video-info">
+                        <div>
+                            <h4>Sarah Brown</h4>
+                            <p>Life-changing results from minimally invasive approach</p>
+                            <span class="ivy-video-badge">Spine Surgery</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-header advantages-header">
-                        <div class="icon-container">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h2 class="text-center">Why Laparoscopic Hernia Surgery?</h2>
-                    </div>
-                    <div class="card-body">
-                        <p>Laparoscopic surgery offers several advantages, including:</p>
-                        <ul>
-                            <li>Smaller incisions and minimal scarring</li>
-                            <li>Shorter hospital stays</li>
-                            <li>Reduced post-operative pain</li>
-                            <li>Greater surgical precision and safety</li>
-                            <li>Lower risk of infection</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-header delay-header">
-                        <div class="icon-container">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h2 class="text-center">Why This Procedure Should Not Be Delayed?</h2>
-                    </div>
-                    <div class="card-body">
-                        <p>Delaying hernia treatment can lead to:</p>
-                        <ul>
-                            <li>Progressive enlargement of the hernia</li>
-                            <li>Increasing pain and discomfort</li>
-                            <li>The risk of hernia strangulation (a serious complication)</li>
-                            <li>The need for more extensive surgery in the future</li>
-                            <li>Potential for tumor development</li>
-                        </ul>
-                    </div>
+        <!-- Shared Modal for all videos -->
+        <div id="videoModal" class="video-modal">
+            <span class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </span>
+            <div class="video-modal-content">
+                <div class="video-container" id="videoContainer">
+                    <!-- The iframe will be inserted here dynamically -->
                 </div>
             </div>
         </div>
-        
-        <div class="text-center mt-4">
-            <p class="text-muted"><small>This information is provided for educational purposes only and is not a substitute for professional medical advice.</small></p>
-        </div>
-    </div>
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all video placeholders
+            const videoPlaceholders = document.querySelectorAll('.ivy-video-placeholder');
+            const videoModal = document.getElementById('videoModal');
+            const closeModal = document.getElementById('closeModal');
+            const videoContainer = document.getElementById('videoContainer');
+            
+            // Add click event to each video placeholder
+            videoPlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const patientName = this.getAttribute('data-patient-name');
+                    const condition = this.getAttribute('data-condition');
+                    
+                    // Create the iframe only when a placeholder is clicked
+                    videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+                                                title="${patientName} - ${condition}" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                allowfullscreen></iframe>`;
+                    
+                    // Show the modal with animation
+                    videoModal.style.display = 'block';
+                    setTimeout(() => {
+                        videoModal.style.opacity = '1';
+                    }, 10);
+                    
+                    // Prevent body scrolling when modal is open
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Function to close the modal and stop the video
+            function closeVideoModal() {
+                // Remove the iframe to stop the video
+                videoContainer.innerHTML = '';
+                
+                // Hide the modal
+                videoModal.style.display = 'none';
+                
+                // Restore body scrolling
+                document.body.style.overflow = '';
+            }
+            
+            // Event listeners for closing
+            closeModal.addEventListener('click', closeVideoModal);
+            
+            // Close when clicking outside the content
+            window.addEventListener('click', function(event) {
+                if (event.target === videoModal) {
+                    closeVideoModal();
+                }
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && videoModal.style.display === 'block') {
+                    closeVideoModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
