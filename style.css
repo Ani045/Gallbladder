@@ -186,7 +186,7 @@ body {
 }
 @media (max-width: 768px) {
     .hero-section{
-        background: linear-gradient(rgba(102, 66, 0, 0.85), rgba(145, 99, 0, 0.8)) ;
+        background: #072A3A ;
     }
 }
 
