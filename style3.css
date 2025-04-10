@@ -27,7 +27,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f8f8;
+   
     padding-top: 80px;
 }
 
@@ -1031,239 +1031,239 @@ margin-bottom: 0;
 }
 
 /* Testimonial Section */
-.testimonial-slider {
-background-color: var(--light-cream);
-border-radius: 15px;
-padding: 40px;
-position: relative;
-margin-top: 40px;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-overflow: hidden;
-}
+/*.testimonial-slider {*/
+/*background-color: var(--light-cream);*/
+/*border-radius: 15px;*/
+/*padding: 40px;*/
+/*position: relative;*/
+/*margin-top: 40px;*/
+/*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);*/
+/*overflow: hidden;*/
+/*}*/
 
-.testimonial-slider::before {
-content: '';
-position: absolute;
-width: 150px;
-height: 150px;
-background-color: rgba(102, 66, 0, 0.05);
-border-radius: 50%;
-top: -75px;
-right: -75px;
-}
+/*.testimonial-slider::before {*/
+/*content: '';*/
+/*position: absolute;*/
+/*width: 150px;*/
+/*height: 150px;*/
+/*background-color: rgba(102, 66, 0, 0.05);*/
+/*border-radius: 50%;*/
+/*top: -75px;*/
+/*right: -75px;*/
+/*}*/
 
-.testimonial-header {
-margin-bottom: 30px;
-position: relative;
-}
+/*.testimonial-header {*/
+/*margin-bottom: 30px;*/
+/*position: relative;*/
+/*}*/
 
-.testimonial-header h3 {
-color: var(--dark-sky);
-font-size: 1.8rem;
-font-weight: 600;
-position: relative;
-display: inline-block;
-padding-bottom: 10px;
-}
+/*.testimonial-header h3 {*/
+/*color: var(--dark-sky);*/
+/*font-size: 1.8rem;*/
+/*font-weight: 600;*/
+/*position: relative;*/
+/*display: inline-block;*/
+/*padding-bottom: 10px;*/
+/*}*/
 
-.testimonial-header h3::after {
-content: '';
-position: absolute;
-bottom: 0;
-left: 0;
-width: 60px;
-height: 3px;
-background-color: var(--medium-brown);
-}
+/*.testimonial-header h3::after {*/
+/*content: '';*/
+/*position: absolute;*/
+/*bottom: 0;*/
+/*left: 0;*/
+/*width: 60px;*/
+/*height: 3px;*/
+/*background-color: var(--medium-brown);*/
+/*}*/
 
-.testimonial-carousel {
-position: relative;
-overflow: hidden;
-height: 230px;
-}
+/*.testimonial-carousel {*/
+/*position: relative;*/
+/*overflow: hidden;*/
+/*height: 230px;*/
+/*}*/
 
-.testimonial-item {
-position: absolute;
-width: 100%;
-opacity: 0;
-transform: translateX(50px);
-transition: all 0.5s ease;
-visibility: hidden;
-}
+/*.testimonial-item {*/
+/*position: absolute;*/
+/*width: 100%;*/
+/*opacity: 0;*/
+/*transform: translateX(50px);*/
+/*transition: all 0.5s ease;*/
+/*visibility: hidden;*/
+/*}*/
 
-.testimonial-item.active {
-opacity: 1;
-transform: translateX(0);
-visibility: visible;
-}
+/*.testimonial-item.active {*/
+/*opacity: 1;*/
+/*transform: translateX(0);*/
+/*visibility: visible;*/
+/*}*/
 
-.testimonial-content {
-position: relative;
-padding: 30px;
-background-color: white;
-border-radius: 12px;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
+/*.testimonial-content {*/
+/*position: relative;*/
+/*padding: 30px;*/
+/*background-color: white;*/
+/*border-radius: 12px;*/
+/*box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);*/
+/*}*/
 
-.quote-icon {
-position: absolute;
-top: 20px;
-right: 20px;
-color: var(--light-cream);
-font-size: 3rem;
-opacity: 0.6;
-}
+/*.quote-icon {*/
+/*position: absolute;*/
+/*top: 20px;*/
+/*right: 20px;*/
+/*color: var(--light-cream);*/
+/*font-size: 3rem;*/
+/*opacity: 0.6;*/
+/*}*/
 
-.testimonial-content p {
-color: #555;
-font-size: 1.1rem;
-line-height: 1.8;
-font-style: italic;
-margin-bottom: 25px;
-}
+/*.testimonial-content p {*/
+/*color: #555;*/
+/*font-size: 1.1rem;*/
+/*line-height: 1.8;*/
+/*font-style: italic;*/
+/*margin-bottom: 25px;*/
+/*}*/
 
-.testimonial-author {
-display: flex;
-align-items: center;
-}
+/*.testimonial-author {*/
+/*display: flex;*/
+/*align-items: center;*/
+/*}*/
 
-.author-image {
-width: 60px;
-height: 60px;
-margin-right: 15px;
-border-radius: 50%;
-overflow: hidden;
-border: 3px solid var(--light-cream);
-}
+/*.author-image {*/
+/*width: 60px;*/
+/*height: 60px;*/
+/*margin-right: 15px;*/
+/*border-radius: 50%;*/
+/*overflow: hidden;*/
+/*border: 3px solid var(--light-cream);*/
+/*}*/
 
-.author-image img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
+/*.author-image img {*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*object-fit: cover;*/
+/*}*/
 
-.author-info h4 {
-color: var(--dark-brown);
-font-weight: 600;
-font-size: 1.1rem;
-margin-bottom: 5px;
-}
+/*.author-info h4 {*/
+/*color: var(--dark-brown);*/
+/*font-weight: 600;*/
+/*font-size: 1.1rem;*/
+/*margin-bottom: 5px;*/
+/*}*/
 
-.author-info p {
-color: #777;
-font-size: 0.9rem;
-margin-bottom: 0;
-}
+/*.author-info p {*/
+/*color: #777;*/
+/*font-size: 0.9rem;*/
+/*margin-bottom: 0;*/
+/*}*/
 
-.testimonial-controls {
-display: flex;
-justify-content: space-between;
-align-items: center;
+/*.testimonial-controls {*/
+/*display: flex;*/
+/*justify-content: space-between;*/
+/*align-items: center;*/
 /* margin-top: 30px; */
-}
+/*}*/
 
-.control-dots {
-display: flex;
-gap: 8px;
-}
+/*.control-dots {*/
+/*display: flex;*/
+/*gap: 8px;*/
+/*}*/
 
-.dot {
-width: 12px;
-height: 12px;
-border-radius: 50%;
-background-color: rgba(102, 66, 0, 0.2);
-cursor: pointer;
-transition: all 0.3s ease;
-}
+/*.dot {*/
+/*width: 12px;*/
+/*height: 12px;*/
+/*border-radius: 50%;*/
+/*background-color: rgba(102, 66, 0, 0.2);*/
+/*cursor: pointer;*/
+/*transition: all 0.3s ease;*/
+/*}*/
 
-.dot.active, .dot:hover {
-background-color: var(--medium-brown);
-}
+/*.dot.active, .dot:hover {*/
+/*background-color: var(--medium-brown);*/
+/*}*/
 
-.control-arrows {
-display: flex;
-gap: 15px;
-}
+/*.control-arrows {*/
+/*display: flex;*/
+/*gap: 15px;*/
+/*}*/
 
-.prev-arrow, .next-arrow {
-width: 40px;
-height: 40px;
-border-radius: 50%;
-background-color: white;
-border: 1px solid #eee;
-color: var(--dark-sky);
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-transition: all 0.3s ease;
-font-size: 1.1rem;
-}
+/*.prev-arrow, .next-arrow {*/
+/*width: 40px;*/
+/*height: 40px;*/
+/*border-radius: 50%;*/
+/*background-color: white;*/
+/*border: 1px solid #eee;*/
+/*color: var(--dark-sky);*/
+/*display: flex;*/
+/*align-items: center;*/
+/*justify-content: center;*/
+/*cursor: pointer;*/
+/*transition: all 0.3s ease;*/
+/*font-size: 1.1rem;*/
+/*}*/
 
-.prev-arrow:hover, .next-arrow:hover {
-background-color: var(--dark-sky);
-color: white;
-border-color: var(--dark-sky);
-}
+/*.prev-arrow:hover, .next-arrow:hover {*/
+/*background-color: var(--dark-sky);*/
+/*color: white;*/
+/*border-color: var(--dark-sky);*/
+/*}*/
 
-/* Responsive Adjustments */
-@media (max-width: 991px) {
-.section-title {
-font-size: 2.2rem;
-}
 
-.why-choose-content {
-padding-left: 0;
-margin-top: 30px;
-}
+/*@media (max-width: 991px) {*/
+/*.section-title {*/
+/*font-size: 2.2rem;*/
+/*}*/
 
-.testimonial-slider {
-padding: 30px;
-}
-}
+/*.why-choose-content {*/
+/*padding-left: 0;*/
+/*margin-top: 30px;*/
+/*}*/
 
-@media (max-width: 767px) {
-.why-choose-section {
-padding: 70px 0;
-}
+/*.testimonial-slider {*/
+/*padding: 30px;*/
+/*}*/
+/*}*/
 
-.section-title {
-font-size: 1.8rem;
-}
+/*@media (max-width: 767px) {*/
+/*.why-choose-section {*/
+/*padding: 70px 0;*/
+/*}*/
 
-.experience-badge {
-padding: 10px 15px;
-}
+/*.section-title {*/
+/*font-size: 1.8rem;*/
+/*}*/
 
-.experience-badge .years {
-font-size: 1.5rem;
-}
+/*.experience-badge {*/
+/*padding: 10px 15px;*/
+/*}*/
 
-.experience-badge .text {
-font-size: 0.8rem;
-}
+/*.experience-badge .years {*/
+/*font-size: 1.5rem;*/
+/*}*/
 
-.stats-card {
-flex-direction: column;
-right: 50%;
-transform: translateX(50%);
-}
+/*.experience-badge .text {*/
+/*font-size: 0.8rem;*/
+/*}*/
 
-.stats-item:first-child {
-border-right: none;
-border-bottom: 1px solid #eee;
-padding-bottom: 10px;
-margin-bottom: 10px;
-}
+/*.stats-card {*/
+/*flex-direction: column;*/
+/*right: 50%;*/
+/*transform: translateX(50%);*/
+/*}*/
 
-.choose-item {
-margin-bottom: 25px;
-}
+/*.stats-item:first-child {*/
+/*border-right: none;*/
+/*border-bottom: 1px solid #eee;*/
+/*padding-bottom: 10px;*/
+/*margin-bottom: 10px;*/
+/*}*/
 
-.testimonial-content p {
-font-size: 1rem;
-}
-}
+/*.choose-item {*/
+/*margin-bottom: 25px;*/
+/*}*/
+
+/*.testimonial-content p {*/
+/*font-size: 1rem;*/
+/*}*/
+/*}*/
 .ivy-specialists-showcase {
 background-color: #fff;
 padding: 100px 0;
