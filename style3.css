@@ -174,7 +174,7 @@ body {
 /* Hero Banner Section */
 .hero-section {
     position: relative;
-    background:  url('assets/images/Copy\ of\ Kailash_banner\ \(1920\ x\ 600\ px\)\ \(3\).png');
+    background:  url('assets/images/gallbladder\ banner-1.png');
     /* linear-gradient(rgba(102, 66, 0, 0.85), rgba(145, 99, 0, 0.8)), */
     background-size: cover;
     background-position: center;
@@ -191,6 +191,7 @@ body {
     .hero-content{
         color:#fff !important;
     }
+
    
     .hero-title span {
         color: #fff !important
