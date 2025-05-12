@@ -874,6 +874,282 @@
                 font-size: 0.95rem;
             }
         }
+        .gb-health-cta-section {
+            background: linear-gradient(180deg, #ffffff 0%, var(--primary-bg) 50%, var(--accent-light) 100%);
+            padding: 80px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gb-health-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(163, 217, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(10, 77, 104, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 50%, rgba(184, 224, 242, 0.15) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .gb-health-cta-container {
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 
+                0 5px 20px rgba(7, 42, 58, 0.1),
+                0 15px 40px rgba(7, 42, 58, 0.05),
+                0 30px 60px rgba(7, 42, 58, 0.02);
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gb-health-cta-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 8px 25px rgba(7, 42, 58, 0.12),
+                0 20px 45px rgba(7, 42, 58, 0.07),
+                0 35px 65px rgba(7, 42, 58, 0.03);
+        }
+
+        .gb-health-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        .gb-health-cta-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 350px;
+            /* background: linear-gradient(135deg, var(--accent-light), var(--primary-bg)); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gb-health-cta-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.6s ease;
+            filter: brightness(1);
+        }
+
+        .gb-health-cta-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background: linear-gradient(to right, transparent 60%, rgba(255,255,255,0.8) 100%); */
+            z-index: 1;
+            /* transition: opacity 0.3s ease; */
+        }
+
+        .gb-health-cta-container:hover .gb-health-cta-image {
+            /* transform: scale(1.08); */
+        }
+
+        .gb-health-cta-content {
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background: 
+                radial-gradient(circle at top right, rgba(163, 217, 255, 0.05) 0%, transparent 50%),
+                linear-gradient(to bottom right, #ffffff 0%, rgba(225, 240, 247, 0.2) 100%);
+        }
+
+        .gb-health-cta-badge {
+            background: var(--highlight);
+            color: var(--primary-text);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .gb-health-cta-heading {
+            color: var(--primary-text);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .gb-health-cta-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-dark), var(--highlight));
+            border-radius: 2px;
+        }
+
+        .gb-health-cta-description {
+            color: var(--primary-text);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            margin-top: 25px;
+            opacity: 0.8;
+        }
+
+        .gb-health-cta-button-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .gb-health-cta-button {
+            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--primary-color) 100%);
+            color: var(--header-text);
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 77, 104, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gb-health-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .gb-health-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(10, 77, 104, 0.35);
+            color: var(--header-text);
+        }
+
+        .gb-health-cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .gb-health-cta-subtitle {
+            color: var(--primary-text);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        .gb-health-decorative-icon {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--highlight) 0%, var(--accent-light) 100%);
+            opacity: 0.05;
+            border-radius: 50%;
+            bottom: -60px;
+            right: -60px;
+            animation: gbHealthPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gbHealthPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Mobile styles (keeping original) */
+        @media (max-width: 992px) {
+            .gb-health-cta-image-wrapper {
+                min-height: 350px;
+            }
+
+            .gb-health-cta-image {
+                object-fit: cover;
+                mix-blend-mode: multiply;
+            }
+
+            .gb-health-cta-image-wrapper::after {
+                /* background: linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.9) 100%); */
+            }
+            
+            .gb-health-cta-content {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gb-health-cta-section {
+                padding: 60px 0;
+            }
+
+            .gb-health-cta-image-wrapper {
+                min-height: 280px;
+            }
+            
+            .gb-health-cta-heading {
+                font-size: 1.9rem;
+            }
+            
+            .gb-health-cta-description {
+                font-size: 1.05rem;
+            }
+            
+            .gb-health-cta-content {
+                padding: 35px 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gb-health-cta-section {
+                padding: 40px 0;
+            }
+
+            .gb-health-cta-image-wrapper {
+                min-height: 220px;
+            }
+            
+            .gb-health-cta-heading {
+                font-size: 1.7rem;
+            }
+            
+            .gb-health-cta-content {
+                padding: 30px 25px;
+            }
+            
+            .gb-health-cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .gb-health-cta-badge {
+                font-size: 0.8rem;
+                padding: 6px 16px;
+            }
+        }
     </style>
 
 </head>
@@ -1006,7 +1282,7 @@
             </div>
         </div>
 
-        <div class="cta-container text-center">
+        <!-- <div class="cta-container text-center">
             <div class="row">
                 <div class="col-lg-12">
                     <h3 class="cta-title">Your Journey to Gallbladder Health Starts Here
@@ -1015,13 +1291,40 @@
                         towards relief from gallbladder issues.</p>
                     <a href="#" class="btn btn-primary">Book a Consultation</a>
                 </div>
-                <!-- <div class="col-lg-4">
-            <img src="assets/images/doctors-image.png" width="400px" alt="Heart illustration" class="heart-graphic"></div> -->
+               
+            </div>
+        </div> -->
+
+
+
+    </section>
+
+    <section class="gb-health-cta-section">
+        <div class="container">
+            <div class="gb-health-cta-container">
+                <div class="row g-0 align-items-stretch gb-health-cta-row">
+                    <div class="col-lg-7">
+                        <div class="gb-health-cta-image-wrapper">
+                            <img src="assets/images/277777072_4987345158012294_7175544723899266182_n.png" alt="Gallbladder Health Consultation" class="gb-health-cta-image">
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="gb-health-cta-content">
+                            <!-- <span class="gb-health-cta-badge">Expert Care Available</span> -->
+                            <h2 class="gb-health-cta-heading">Your Journey to Gallbladder Health Starts Here</h2>
+                            <p class="gb-health-cta-description">
+                                Schedule a consultation with our expert surgeons, and take the first step towards relief from gallbladder issues.
+                            </p>
+                            <div class="gb-health-cta-button-wrapper">
+                                <a href="#" class="gb-health-cta-button">Schedule Consultation</a>
+                                <!-- <span class="gb-health-cta-subtitle">Available 24/7</span> -->
+                            </div>
+                            <div class="gb-health-decorative-icon"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
     </section>
 
 
@@ -1078,18 +1381,14 @@
                             <div class="card-body">
                                 <!-- <p>Gallbladder Surgery can be performed due to various factors, including:</p> -->
                                 <ul>
-                                    <li><b>Severe Abdominal Pain:</b> Intense pain in the upper right abdomen, often after eating fatty foods, radiating to the back or shoulder.</li>
-                                    <li><b>Nausea and Vomiting:</b> Persistent nausea or vomiting, especially after greasy meals</li>
-                                    <li><b>Indigestion/Dyspepsia:</b> Frequent bloating, belching, or discomfort after eating.
-                                       </li>
-                                       <li><b>Jaundice:</b> Yellowing of the skin or eyes due to a bile duct blockage.
-                                    </li>
-                                        <li><b>Fever and Chills:</b> Signs of infection (cholecystitis) that need immediate medical attention.
-                                        </li>
-                                            <li><b>Dark Urine & Pale Stool:</b> Changes in urine and stool color due to bile duct obstruction.</li>
-                                                
-                                               
+                                    <li><strong>Severe Abdominal Pain:</strong> Sharp pain in the upper right side, often after fatty meals.</li>
+                                    <li><strong>Nausea & Vomiting:</strong> Especially common after eating greasy food.</li>
+                                    <li><strong>Indigestion & Bloating:</strong> Discomfort, belching, or fullness after meals.</li>
+                                    <li><strong>Jaundice:</strong> Yellow skin or eyes from blocked bile flow.</li>
+                                    <li><strong>Fever & Chills:</strong> A sign of gallbladder infection—needs urgent care.</li>
+                                    <li><strong>Dark Urine & Pale Stool:</strong> Bile duct issues can change urine and stool color.</li>
                                 </ul>
+                                
                             </div>
                         </div>
                     </div>
@@ -1104,19 +1403,17 @@
                             </div>
                             <div class="card-body">
                                 <ul>
-                                    <li><b>Obesity:</b> Increases the risk of gallstones due to higher cholesterol levels in bile.</li>
-                                    <li><b>Age:</b> People over 40 are at higher risk, particularly for gallstones and cholecystitis.</li>
-                                    <li><b>Gender:</b> Women are more likely to develop gallstones due to hormonal factors like pregnancy, birth control, and estrogen therapy.                                    </li>
-                                        <li><b>Family History:</b> A genetic predisposition increases your risk of gallbladder issues.
-                                        </li>
-                                            <li><b>High Cholesterol Diet</b> Fatty foods, high cholesterol, and low fiber diets promote gallstone formation.
-                                            </li>
-                                                <!-- <li><b>Diabetes:</b> Type 2 diabetes increases cholesterol levels, raising gallstone risk.
-                                                </li> -->
-                                                    <li><b>Rapid Weight Loss:</b> Quick weight loss can increase gallstone risk.</li>
-                                                    <li><b>Pregnancy:</b> Hormonal changes increase the risk, especially in overweight or older women.
-                                                    </li>
-                                                        <!-- <p>These risk factors highlight the importance of maintaining a healthy lifestyle, including a balanced diet and regular exercise, to reduce the likelihood of gallbladder issues.  </p> -->
+                                    
+                                        <li><strong>Obesity:</strong> Higher cholesterol leads to more gallstones.</li>
+                                        <li><strong>Age 40+:</strong> Risk increases with age.</li>
+                                        <li><strong>Women:</strong> Hormones during pregnancy or birth control raise the risk.</li>
+                                        <li><strong>Family History:</strong> Genetics can play a role.</li>
+                                        <li><strong>Unhealthy Diet:</strong> High-fat, low-fiber foods promote gallstones.</li>
+                                        <li><strong>Rapid Weight Loss:</strong> Quick drops in weight trigger stone formation.</li>
+                                        <li><strong>Pregnancy:</strong> Hormonal shifts raise gallbladder risk—especially in older or overweight women.</li>
+                                
+                                        
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -1133,11 +1430,15 @@
                             <div class="card-body">
                                 <ul>
                                     <ul>
-                                        <li><strong>Relieves Pain:</strong> Gallbladder surgery, especially cholecystectomy, helps alleviate the constant abdominal pain caused by gallstones, improving comfort and quality of life.</li>
-                                        <li><strong>Prevents Complications:</strong> Surgery helps prevent serious issues like pancreatitis, jaundice, and cholangitis by stopping gallstones from blocking bile ducts.</li>
-                                        <li><strong>Improved Digestion:</strong> After surgery, the liver continues bile production, improving fat digestion and overall digestion, especially after meals.</li>
-                                        <li><strong>Reduces Gallstone Recurrence:</strong> Surgery eliminates the risk of gallstones, providing permanent relief.</li>
-                                        <li><strong>Improved Health:</strong> Gallbladder removal boosts overall health, allowing better physical activity and more dietary freedom.</li>
+                                       
+                                            <li><strong>Permanent Relief from Pain:</strong> No more recurring gallstone attacks or digestive discomfort.</li>
+                                            <li><strong>Prevents Complications:</strong> Reduces the risk of infections, jaundice, pancreatitis, and other serious issues.</li>
+                                            <li><strong>Quick Recovery:</strong> Laparoscopic and robotic surgeries offer faster healing with minimal downtime.</li>
+                                            <li><strong>No More Diet Fears:</strong> Eat comfortably without worrying about sudden gallbladder flare-ups.</li>
+                                            <li><strong>Safe and Effective:</strong> A well-established, routine procedure with high success rates.</li>
+                                            <li><strong>Improved Quality of Life:</strong> Enjoy a healthier, pain-free lifestyle post-surgery.</li>
+                                  
+                                        
                                       </ul>
 
                                       
